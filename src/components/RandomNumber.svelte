@@ -16,7 +16,7 @@ import { each, fix_and_outro_and_destroy_block, text } from 'svelte/internal';
   const fetchMath = (async (): Promise<mathResults[]> => {
     let resArray: mathResults[] = [];
     for(let i = 0; i < 10; i++) {
-      const response: Response = await fetch('http://numbersapi.com/random/math?json');
+      const response: Response = await fetch('//numbersapi.com/random/math?json');
       resArray.push(await response.json());
       await sleep(500);
     }

@@ -7,7 +7,7 @@
   const thisDate = today.getDate();
 
   const fetchTodayTrivia = (async (): Promise<any> => {
-    const response: Response = await fetch(`http://numbersapi.com/${thisMonth}/${thisDate}/date?json`);
+    const response: Response = await fetch(`//numbersapi.com/${thisMonth}/${thisDate}/date?json`);
     return await response.json();
 	})()
 </script>
