@@ -10,7 +10,7 @@
 </script>
 
 {#if isVisible}
-<nav transition:scale='{{duration: 2000}}'>
+<nav transition:scale={{duration: 2000}}>
 	<span id='nav-title'><img alt='taco' src='./img/cat.png'/>Bullshit Trivia</span>
 </nav>
 {/if}

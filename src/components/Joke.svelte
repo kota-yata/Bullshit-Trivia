@@ -1,15 +1,15 @@
 <script lang='ts'>
-  import Spinner from '@sveltekit/ui/Spinner';
+import WaitingSpinner from './WaitingSpinner.svelte';
 
   const fetchJoke = (async (): Promise<any> => {
     const response: Response = await fetch('https://official-joke-api.appspot.com/jokes/random');
     return await response.json()
-	})()
+	})();
 </script>
 
 <div class='joke-container'>
   {#await fetchJoke}
-  <div class='spinner-container'><Spinner /></div>
+  <WaitingSpinner />
   <span>Waiting for a funny joke...</span>
     {:then data}
   <div class='joke-setup'>{data.setup}</div>
@@ -28,9 +28,6 @@
     background: $joke-background;
     padding: 20px;
     box-shadow: 0 5px 20px -8px $shadow inset, 0 -5px 20px -8px $shadow inset;
-    .spinner-container {
-      height: 30px;
-    }
     .joke-setup {
       color: $joke-setup;
       font-size: 25px;

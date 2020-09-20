@@ -1,6 +1,7 @@
 <script lang='ts'>
   import Section from './Section.svelte';
-  import Spinner from '@sveltekit/ui/Spinner';
+  import WaitingSpinner from './WaitingSpinner.svelte';
+  import { scale } from 'svelte/transition';
 
   type triviaResults = {
     'category': string,
@@ -16,13 +17,25 @@
     const jsonData = await response.json();
     const results: triviaResults[] = jsonData.results;
     return results;
-	})()
+  })();
+  
+  let isAnswer: boolean[] = [];
+  let isShowBtn: boolean[] = [];
+  for(let i = 0; i < 10; i++) {
+    isAnswer.push(false);
+    isShowBtn.push(true);
+  }
+
+  const clickHandler = (id: number):void => {
+    isAnswer[id] = true;
+    isShowBtn[id] = false;
+  }
 </script>
 
-<Section title='10 Trivia Quizzes of this session' />
+<Section title='10 Trivia Quizzes of this session' imgpath='./img/quiz.png' />
 <div class='trivia-container'>
   {#await fetchTrivia}
-  <div class='spinner-container'><Spinner /></div>
+  <WaitingSpinner />
   <span>Waiting for trivia...</span>
     {:then data}
     {#each data as { category, type, difficulty, question, correct_answer, incorrect_answer }, i}
@@ -37,8 +50,12 @@
     {:else if difficulty === 'hard'}
     <div class='trivia-difficulty hard'>{difficulty} <span class='trivia-category'> - {category}</span></div>
     {/if}
-    <button class='trivia-checkbtn' on:click = ''>Checking the answer</button>
-    <div class='trivia-answer'>{correct_answer} </div>
+    {#if isShowBtn[i]}
+    <button class='trivia-checkbtn' on:click = {() => clickHandler(i)}>Check the answer</button>
+    {/if}
+    {#if isAnswer[i]}
+    <div class='trivia-answer' transition:scale={{duration: 500}}>{correct_answer.replace(/&quot;/gi, '\"').replace(/&#039;/gi, '\'')} </div>
+    {/if}
   </div>
     {/each}
     {:catch error}
@@ -51,15 +68,13 @@
 
   .trivia-container {
     @extend %center;
-    .spinner-container {
-      height: 30px;
-    }
+    margin-bottom: 50px;
     .trivia-card {
       @extend %center;
       position: relative;
       width: 80vw;
       background: $trivia-card;
-      padding: 20px 0px;
+      padding: 20px;
       margin-top: 40px;
       margin-bottom: 40px;
       .trivia-question {
@@ -88,11 +103,24 @@
         color: $trivia-hard;
       }
       .trivia-checkbtn {
+        cursor: pointer;
         appearance: none;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 20px;
         background: $taco-red;
+        color: $white;
         border-radius: 10px;
+        border: none;
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          opacity: 0.6;
+        }
+      }
+      .trivia-answer {
+        margin-top: 20px;
+        font-size: 30px;
+        color: $taco-red;
       }
     }
   }
