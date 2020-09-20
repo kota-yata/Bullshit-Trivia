@@ -1,6 +1,6 @@
 <script lang="ts">
 import Section from './Section.svelte';
-import WaitingSpinner from './WaitingSpinner.svelte';
+/* import WaitingSpinner from './WaitingSpinner.svelte';
 
 type mathResults = {
   text: string;
@@ -19,12 +19,12 @@ const fetchMath = (async (): Promise<mathResults[]> => {
     await sleep(500);
   }
   return resArray;
-})();
+})(); */
 </script>
 
 <Section title="Trivia about Math" imgpath="./img/rndnum.png" />
 <div class="math-container">
-  {#await fetchMath}
+  <!--{#await fetchMath}
     <WaitingSpinner />
     <span>Waiting for trivia about math...</span>
   {:then data}
@@ -35,7 +35,10 @@ const fetchMath = (async (): Promise<mathResults[]> => {
     <span>Oops, Error occured... I hate math. Fuck math.</span><br />
     <span>Failed to load because <a href="http://numbersapi.com/#42">Numbers API</a> doesn't support HTTPS connection. I
       send an email to developer of Numbers API, so please wait.</span>
-  {/await}
+  {/await}!-->
+  <span>Oops, Error occured... I hate math. Fuck math.</span><br />
+  <span>Failed to load because <a href="http://numbersapi.com/#42">Numbers API</a> doesn't support HTTPS connection. I send
+    an email to developer of Numbers API, so please wait.</span>
 </div>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
 <script lang="ts">
 import Section from './Section.svelte';
-import WaitingSpinner from './WaitingSpinner.svelte';
+/* import WaitingSpinner from './WaitingSpinner.svelte';
 
 const today = new Date();
 const thisMonth = today.getMonth() + 1;
@@ -9,12 +9,12 @@ const thisDate = today.getDate();
 const fetchTodayTrivia = (async (): Promise<any> => {
   const response: Response = await fetch(`//numbersapi.com/${thisMonth}/${thisDate}/date?json`);
   return await response.json();
-})();
+})(); */
 </script>
 
 <Section title="Trivia about Today" imgpath="./img/today.png" />
 <div class="today-container">
-  {#await fetchTodayTrivia}
+  <!--{#await fetchTodayTrivia}
     <WaitingSpinner />
     <span>Waiting for a funny joke...</span>
   {:then data}
@@ -24,7 +24,10 @@ const fetchTodayTrivia = (async (): Promise<any> => {
     <span>Oops, Error occured... Today is not so vital in human history</span><br />
     <span>Failed to load because <a href="http://numbersapi.com/#42">Numbers API</a> doesn't support HTTPS connection. I
       send an email to developer of Numbers API, so please wait.</span>
-  {/await}
+  {/await}!-->
+  <span>Oops, Error occured... Today is not so vital in human history</span><br />
+  <span>Failed to load because <a href="http://numbersapi.com/#42">Numbers API</a> doesn't support HTTPS connection. I send
+    an email to developer of Numbers API, so please wait.</span>
 </div>
 
 <style lang="scss">
