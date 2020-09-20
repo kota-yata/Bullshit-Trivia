@@ -1,11 +1,13 @@
-<script lang='ts'>
-  import Spinner from '@sveltekit/ui/Spinner';
+<script lang="ts">
+import Spinner from '@sveltekit/ui/Spinner';
 </script>
 
-<div class='spinner-container'><Spinner /></div>
+<div class="spinner-container">
+  <Spinner />
+</div>
 
 <style lang="scss">
-  .spinner-container {
-    height: 30px;
-  }
+.spinner-container {
+  height: 30px;
+}
 </style>

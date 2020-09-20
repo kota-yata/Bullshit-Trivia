@@ -1,5 +1,5 @@
-<script lang='ts'>
-	import Home from './routes/Home.svelte';
+<script lang="ts">
+import Home from './routes/Home.svelte';
 </script>
 
 <Home />
