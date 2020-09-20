@@ -34,7 +34,8 @@ import { each, fix_and_outro_and_destroy_block, text } from 'svelte/internal';
   <div class='math-trivia'><i class="fas fa-space-shuttle"></i> {text.replace(/\^\{th\}/gi, 'th')}</div>
     {/each}
     {:catch error}
-  <span>Oops, Error occured... I hate math. Fuck math.</span>
+  <span>Oops, Error occured... I hate math. Fuck math.</span><br>
+  <span>Failed to load because <a href='http://numbersapi.com/#42'>Numbers API</a> doesn't support HTTPS connection. I send an email to developer of Numbers API, so please wait.</span>
   {/await}
 </div>
 
@@ -43,12 +44,18 @@ import { each, fix_and_outro_and_destroy_block, text } from 'svelte/internal';
 
   .math-container {
     @extend %center;
-    width: 70vw;
+    width: 60vw;
     .math-trivia {
       text-align: left;
       margin-top: 20px;
       margin-bottom: 20px;
       font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .math-container {
+      width: 80vw !important;
     }
   }
 </style>

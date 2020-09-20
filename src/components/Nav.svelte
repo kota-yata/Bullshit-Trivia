@@ -31,4 +31,13 @@
 			}
 		}
 	}
+
+	@media screen and (max-width: 750px) {
+		#nav-title {
+			font-size: 30px !important;
+			img {
+				width: 40px !important;
+			}
+		}
+	}
 </style>

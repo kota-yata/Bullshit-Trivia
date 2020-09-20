@@ -124,4 +124,20 @@
       }
     }
   }
+
+  @media screen and (max-width: 750px) {
+    .trivia-question {
+      font-size: 23px !important;
+      .trivia-type {
+        font-size: 13px !important;
+      }
+    }
+    .trivia-difficulty {
+      font-size: 20px !important;
+      top: -15px !important;
+      .trivia-category {
+        font-size: 10px !important;
+      }
+    }
+  }
 </style>

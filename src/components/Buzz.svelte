@@ -35,4 +35,10 @@
       font-size: 35px;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    .buzz-phrase {
+      font-size: 25px !important;
+    }
+  }
 </style>

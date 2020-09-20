@@ -23,4 +23,13 @@
       color: $taco-red;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    span {
+      img {
+        width: 30px !important;
+      }
+      font-size: 20px !important;
+    }
+  }
 </style>

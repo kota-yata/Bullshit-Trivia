@@ -6,12 +6,14 @@
 	import Today from '../components/Today.svelte';
 	import Footer from '../components/Footer.svelte';
 	import RandomNumber from '../components/RandomNumber.svelte';
+  import Trump from '../components/Trump.svelte';
 </script>
 
 <main>
 	<Nav />
 	<Joke />
 	<Buzz />
+	<Trump />
 	<Trivia />
 	<Today />
 	<RandomNumber />

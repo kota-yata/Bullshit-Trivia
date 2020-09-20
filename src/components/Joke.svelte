@@ -38,4 +38,13 @@ import WaitingSpinner from './WaitingSpinner.svelte';
       margin: 10px;
     }
   }
+
+  @media screen and (max-width: 750px) {
+    .joke-setup {
+      font-size: 20px !important;
+    }
+    .joke-punchline {
+      font-size: 25px !important;
+    }
+  }
 </style>

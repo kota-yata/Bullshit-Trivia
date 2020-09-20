@@ -21,7 +21,8 @@
   <div class='trivia-date'>{data.year}/{thisMonth}/{thisDate}</div>
   <div class='today-trivia'>{data.text}</div>
     {:catch error}
-  <span>Oops, Error occured... Today is not so vital in human history</span>
+  <span>Oops, Error occured... Today is not so vital in human history</span><br>
+  <span>Failed to load because <a href='http://numbersapi.com/#42'>Numbers API</a> doesn't support HTTPS connection. I send an email to developer of Numbers API, so please wait.</span>
   {/await}
 </div>
 
